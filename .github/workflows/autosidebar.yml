@@ -28,7 +28,7 @@ jobs:
 
       - name: use node
       # 使用action库  actions/setup-node安装node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: 14
             
