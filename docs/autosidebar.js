@@ -49,7 +49,7 @@ var fs = require('fs');
 
 
 console.log(sidebarTxt);
-fs.writeFile('./docs/_sidebar.md', sidebarTxt,function(err){
+fs.writeFile('./_sidebar.md', sidebarTxt,function(err){
     if(err){
         console.error(err);
     }
