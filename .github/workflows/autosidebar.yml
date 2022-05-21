@@ -19,21 +19,13 @@ jobs:
       run: |
         cd ./docs
         node ./autosidebar.js
-    - name: Commit changes
+    
 
-      uses: EndBug/add-and-commit@v4
+    - uses: stefanzweifel/git-auto-commit-action@v4
 
       with:
 
-        author_name: GITHUB_GENERATOR
-
-        author_email: stevebill@126.com
-
-        message: "AUTO GENERATE README"
-
-        add: "*.md"
+        commit_message: Apply php-cs-fixer changes
 
       env:
-
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         CI: true
