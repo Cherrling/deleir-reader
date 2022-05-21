@@ -26,13 +26,14 @@ jobs:
 
       with:
 
-        author_name: GITHUB_ACTION
+        author_name: GITHUB_GENERATOR
 
-        message: "AUTO GENERATE README"
+        author_email: stevebill@126.com
+
+        message: "AUTO GENERATE SIDEBAR"
 
         add: "*.md"
 
       env:
 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        CI: true
