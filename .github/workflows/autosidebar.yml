@@ -15,9 +15,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 10.x
-    - name: npm install, build
+    - name: do autosidebar
       run: |
-        node ./docs/autosidebar.js
+        cd /docs
+        node ./autosidebar.js
         
     - name: Commit changes
 
