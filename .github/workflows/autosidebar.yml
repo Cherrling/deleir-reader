@@ -35,5 +35,9 @@ jobs:
       - name: npm install and gen sidebar
                 # 运行的命令或者 action
         run: |
-          npm install
+          npm install        
+          npm run build --if-present
           node ./docs/autosidebar.js
+        env:
+          CI: true
+          
