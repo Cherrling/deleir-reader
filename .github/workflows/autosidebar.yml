@@ -18,13 +18,13 @@ jobs:
     - name: do autosidebar
       run: |
         node ./docs/autosidebar.js
-    
+    - name: commit
+      run:
+        git add .
+        git commit 'action'
+        git commit
 
-    - uses: stefanzweifel/git-auto-commit-action@v4
 
-      with:
-
-        commit_message: Apply php-cs-fixer changes
 
       env:
         CI: true
