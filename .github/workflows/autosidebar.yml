@@ -17,8 +17,13 @@ jobs:
         node-version: 10.x
     - name: do autosidebar
       run: |
-        node ./docs/autosidebar.js
-        mv -f ./_sidebar.md ./docs/_sidebar.md
+       # node ./docs/autosidebar.js
+       # mv -f ./_sidebar.md ./docs/_sidebar.md
+       cd ./docs
+       node ./autosidebar.js
+       ls
+       
+       
     - name: Commit changes
       uses: EndBug/add-and-commit@v4
       with:
