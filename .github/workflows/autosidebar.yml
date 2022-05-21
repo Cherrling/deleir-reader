@@ -17,8 +17,7 @@ jobs:
         node-version: 10.x
     - name: do autosidebar
       run: |
-        cd ./docs
-        node ./autosidebar.js
+        node ./docs/autosidebar.js
     
 
     - uses: stefanzweifel/git-auto-commit-action@v4
