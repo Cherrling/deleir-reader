@@ -4,4 +4,4 @@
   * [TE]()
                - [1.死亡·契约·新生](/docs/TE/1.死亡·契约·新生.md)
                - [2.森林之中](/docs/TE/2.森林之中.md)
-               - [test](/docs/TE/test.md)
+               - [githubaction](/docs/TE/githubaction.md)
