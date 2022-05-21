@@ -38,7 +38,7 @@ walkSync(curPath,'', function(filePath, stat) {
         if(relativeFilePath.substr(-8,8) == 'README.md'){
             sidebarTxt += '';
         }else{
-            sidebarTxt += '     - ['+itemText+']('+relativeFilePath+')\n';
+            sidebarTxt += '- ['+itemText+']('+relativeFilePath+')\n';
         }  
         }
         //console.log("file:"+ +path.extname(filePath));
