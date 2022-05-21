@@ -18,5 +18,22 @@ jobs:
     - name: npm install, build
       run: |
         node ./docs/autosidebar.js
+        
+    - name: Commit changes
+
+      uses: EndBug/add-and-commit@v4
+
+      with:
+
+        author_name: GITHUB_GENERATOR
+
+        author_email: 1483523635@qq.com
+
+        message: "AUTO GENERATE README"
+
+        add: "*.js"
+
       env:
+
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         CI: true
