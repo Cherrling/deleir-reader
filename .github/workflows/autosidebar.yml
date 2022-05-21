@@ -25,13 +25,11 @@ jobs:
 
       with:
 
-        author_name: GITHUB_GENERATOR
-
-        author_email: 1483523635@qq.com
+        author_name: GITHUB_ACTION
 
         message: "AUTO GENERATE README"
 
-        add: "*.js"
+        add: "*.md"
 
       env:
 
