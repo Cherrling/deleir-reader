@@ -29,8 +29,8 @@ jobs:
       - name: use node
       # 使用action库  actions/setup-node安装node
         uses: actions/setup-node@v1
-                with:
-                    node-version: 14
+        with:
+          node-version: 14
             
       - name: npm install and gen sidebar
                 # 运行的命令或者 action
