@@ -14,7 +14,7 @@ function walkSync(currentDirPath, prefixBlank, callback) {
         } else if (stat.isDirectory() && ".git"!=path.basename(filePath) && '_' != path.basename(filePath).substr(0,1)) {
             var relativeFilePath = filePath.substr(curPath.length);
             //sidebarTxt += prefixBlank +'* [' +path.basename(filePath)+']('+ relativeFilePath +'/README.md)\n';
-            sidebarTxt += prefixBlank +'* [' +path.basename(filePath)+']()\n';
+            sidebarTxt += prefixBlank +'* [' +path.basename(filePath)+'](/)\n';
             walkSync(filePath, prefixBlank+'  ', callback);
         }
     });
