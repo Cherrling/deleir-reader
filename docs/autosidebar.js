@@ -47,7 +47,6 @@ walkSync(curPath,'', function(filePath, stat) {
 var path = require('path');
 var fs = require('fs');
 fs.copyFile(path.resolve('./')+"/_sidebar.md",path.resolve('./')+"/_sidebar.md.bak",function(err){
-        if(err) throw new Error('something wrong was happended') });
 //console.log(path.resolve('./')+"/_sidebar.md");
 
 console.log(sidebarTxt);
