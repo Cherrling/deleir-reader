@@ -2,41 +2,22 @@
 
 name: CI
 
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
+
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-
-
-      - name: use node
-      # 使用action库  actions/setup-node安装node
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-            
-      - name: npm install and gen sidebar
-                # 运行的命令或者 action
-        run: |
-          npm install        
-          npm run build --if-present
-        env:
-          CI: true
-          
+    - uses: actions/checkout@v1
+    - name: Use Node.js 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+    - name: npm install, build
+      run: |
+        npm install
+        npm run build --if-present
+      env:
+        CI: true
