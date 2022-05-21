@@ -19,15 +19,20 @@ jobs:
       run: |
         cd ./docs
         node ./autosidebar.js
-        
-  commit:
+    - name: Commit changes
 
-    runs-on: ubuntu-latest
+      uses: EndBug/add-and-commit@v4
 
-    steps:
+      with:
 
-      - uses: EndBug/add-and-commit@v9
+        author_name: GITHUB_GENERATOR
 
-        with:
+        author_email: stevebill@126.com
 
-          default_author: github_actions
+        message: "AUTO GENERATE README"
+
+        add: "*.md"
+
+      env:
+
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
