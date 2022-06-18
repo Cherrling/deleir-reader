@@ -21,10 +21,8 @@ jobs:
 
     - name: do autosidebar
       run: |
-       # node ./docs/autosidebar.js
-       # mv -f ./_sidebar.md ./docs/_sidebar.md
        cd ./docs
-       node ./autosidebar.js
+       node ./auto.js
        ls
        
     - name: Commit changes
