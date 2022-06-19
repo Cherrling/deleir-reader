@@ -1,3 +1,4 @@
+
 const fs = require("fs");
 const path = require("path");
 
@@ -46,44 +47,55 @@ function processDir(dirPath, dirTree = [], floor = 1) {
   return dirTree;
 }
 
-
 let dirTree = [];
 dirTree = processDir(basepath, dirTree);
 let fileTree = '';
 
 function consoleTree(tree,str = "* ", adder = "   ") {
-  const list = new Array();
+  let list = new Array();
   list.splice(0,list.length)
   list.length=0
   for (let i = 0; i < tree.length; i++) {
 
-
     var filename=tree[i].name.split("/").slice(-1)
     var t=filename[0].split("-")
 
-    list[t[0]]=tree[i]
-    list[t[0]].fname=t[1].replace(".md","")
+    let tem = new Array();
+    tem.length=0
+
+    tem=tree[i]
+    tem.num=Number(t[0]) 
+    tem.fname=t[1].replace(".md","")
+
+    list.push(tem)
 
     }
 
-  for (let a = 0; a < list.length; a++) {
 
-    if (list[a].fname=="ignore") continue
+  list.sort(function(a, b){return a.num - b.num});
 
-    if (list[a].children) {
-    fileTree += str+ "[" +list[a].fname+"]" + "("+"/"+list[a].name+"/)"+"\n";
-          consoleTree(
-      list[a].children,
+  list.forEach(ele => {
+        if (ele.fname=="ignore") {
+      return
+    }
+
+    if (ele.children) {
+      fileTree += str+ "[" +ele.fname+"]" + "("+"/"+ele.name+"/)"+"\n";    
+      consoleTree(
+      ele.children,
       adder+str,
       adder
       );
     } 
-    else {
-    fileTree += str+ "[" +list[a].fname+"]" + "("+"/"+list[a].name+")"+"\n";
-    }
-  }
-}
 
+    else {
+      fileTree += str+ "[" +ele.fname+"]" + "("+"/"+ele.name+")"+"\n";
+    }
+      
+  });
+
+
+}
 
 
 function writeTree(filePath, content) {
