@@ -1,4 +1,3 @@
-
 const fs = require("fs");
 const path = require("path");
 
@@ -47,7 +46,7 @@ function processDir(dirPath, dirTree = [], floor = 1) {
   return dirTree;
 }
 
-console.log("获取中，请稍后……");
+
 let dirTree = [];
 dirTree = processDir(basepath, dirTree);
 let fileTree = '';
@@ -79,17 +78,10 @@ function consoleTree(tree,str = "* ", adder = "   ") {
       adder
       );
     } 
-    
     else {
     fileTree += str+ "[" +list[a].fname+"]" + "("+"/"+list[a].name+")"+"\n";
     }
-
-
-
-      
   }
-
-
 }
 
 
@@ -106,4 +98,3 @@ function clearTxt(filePath) {
 consoleTree(dirTree);
 writeTree(generatePath,fileTree);
 console.log(fileTree)
-console.log("生成结束");
