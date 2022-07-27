@@ -56,29 +56,22 @@ function consoleTree(tree,str = "* ", adder = "   ") {
   list.splice(0,list.length)
   list.length=0
   for (let i = 0; i < tree.length; i++) {
-
     var filename=tree[i].name.split("/").slice(-1)
     var t=filename[0].split("-")
-
     let tem = new Array();
     tem.length=0
-
     tem=tree[i]
     tem.num=Number(t[0]) 
     tem.fname=t[1].replace(".md","")
-
     list.push(tem)
-
     }
-
-
+    
   list.sort(function(a, b){return a.num - b.num});
 
   list.forEach(ele => {
         if (ele.fname=="ignore") {
       return
     }
-
     if (ele.children) {
       fileTree += str+ "[" +ele.fname+"]" + "("+"/"+ele.name+"/)"+"\n";    
       consoleTree(
@@ -87,17 +80,11 @@ function consoleTree(tree,str = "* ", adder = "   ") {
       adder
       );
     } 
-
     else {
       fileTree += str+ "[" +ele.fname+"]" + "("+"/"+ele.name+")"+"\n";
     }
-      
   });
-
-
 }
-
-
 function writeTree(filePath, content) {
   clearTxt(generatePath);
   fs.writeFileSync(filePath, `${content}`);
